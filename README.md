@@ -1,4 +1,4 @@
-# weapp-hiapp
+# we-run
 [HiApp](https://github.com/BelinChung/HiApp) 微信小程序版
 
 ## Preview
