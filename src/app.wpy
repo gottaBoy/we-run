@@ -27,6 +27,10 @@ setStore(store)
 export default class extends wepy.app {
   config = {
     pages: [
+      // 'pages/myechart',
+      'pages/chart/index',
+      'pages/chart/bar',
+      'pages/chart/lazyLoad',
       'pages/index',
       'pages/contacts',
       'pages/settings',
@@ -51,6 +55,11 @@ export default class extends wepy.app {
       backgroundColor: '#f7f7f8',
       borderStyle: 'white',
       list: [{
+        pagePath: 'pages/chart/index',
+        text: '报表',
+        iconPath: 'assets/images/home-outline.png',
+        selectedIconPath: 'assets/images/home-selected.png'
+      }, {
         pagePath: 'pages/index',
         text: 'Home',
         iconPath: 'assets/images/home-outline.png',

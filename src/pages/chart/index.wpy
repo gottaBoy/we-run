@@ -1,0 +1,140 @@
+<style lang="less" scoped>
+.panel {
+  display: block;
+  margin-top: 10px;
+  .chart-with-img {
+    display: inline-block;
+    width: 25%;
+    margin: 10px 4%;
+    text-align: center;
+    image {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100px; 
+      padding: 20px;
+      background-color: #f3f3f3;
+      border: 1px solid #eee;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+  .chart-without-img {
+    display: block;
+    width: 92%;
+    margin: 10px 4%;
+    border: none;
+    border-radius: 0;
+    button {
+      text-align: left;
+    }
+  }
+}
+</style>
+
+<template>
+<!--index.wxml-->
+<view class="panel">
+  <view class="chart-with-img" wx:for="{{charts}}" wx:for-item="chart" wx:key="{{chart.id}}">
+    <image src="../../img/icons/{{chart.id}}.png" mode="aspectFit" @tap="navToPage({{chart}})" data-chart="{{chart}}"></image>
+    {{chart.name}}
+  </view>
+  <view class="chart-without-img" wx:for="{{chartsWithoutImg}}" wx:for-item="chart" wx:key="{{chart.id}}">
+    <button @tap="navToPage({{chart}})" data-chart="{{chart}}">{{chart.name}}</button>
+  </view>
+</view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+//   import Echarts from '../../components/echart'
+  export default class ChartIndex extends wepy.page {
+    config = {
+      'navigationBarTitleText': '图表'
+    };
+    components = {
+    //   echarts: Echarts,
+    }
+    data = {
+      charts: [{
+        id: 'bar',
+        name: '柱状图'
+      }, {
+        id: 'scatter',
+        name: '散点图'
+      }, {
+        id: 'pie',
+        name: '饼图'
+      }, {
+        id: 'line',
+        name: '折线图'
+      }, {
+        id: 'funnel',
+        name: '漏斗图'
+      }, {
+        id: 'gauge',
+        name: '仪表盘'
+      }, {
+        id: 'k',
+        name: 'K 线图'
+      }, {
+        id: 'radar',
+        name: '雷达图'
+      }, {
+        id: 'heatmap',
+        name: '热力图'
+      }, {
+        id: 'tree',
+        name: '树图'
+      }, {
+        id: 'treemap',
+        name: '矩形树图'
+      }, {
+        id: 'sunburst',
+        name: '旭日图'
+      }, {
+        id: 'map',
+        name: '地图'
+      }, {
+        id: 'graph',
+        name: '关系图'
+      }, {
+        id: 'boxplot',
+        name: '箱型图'
+      }, {
+        id: 'parallel',
+        name: '平行坐标图'
+      }, {
+        id: 'sankey',
+        name: '桑基图'
+      }, {
+        id: 'themeRiver',
+        name: '主题河流图'
+      }],
+      chartsWithoutImg: [{
+        id: 'lazyLoad',
+        name: '延迟加载图表'
+      }, {
+        id: 'multiCharts',
+        name: '一个页面中多个图表'
+      }, {
+        id: 'move',
+        name: '页面不阻塞滚动'
+      }, {
+        id: 'saveCanvas',
+        name: '保存 Canvas 到本地文件'
+      }]
+    }
+    methods = {
+      navToPage(pageInfo) {
+        console.log(pageInfo)
+        this.$preload(pageInfo.id, pageInfo)
+        this.$navigate('./' + pageInfo.id)
+      }
+    }
+    onShow() {
+    }
+    onLoad() {
+    }
+  }
+</script>

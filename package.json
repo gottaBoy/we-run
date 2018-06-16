@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "description": "A simple and interesting wechat app.",
   "license": "MIT",
-  "author": "BelinChung",
+  "author": "gottaBoy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BelinChung/weapp-hiapp.git"
+    "url": "https://github.com/gottaBoy/weapp-hiapp.git"
   },
   "main": "dist/app.js",
   "scripts": {
@@ -23,9 +23,9 @@
     "wepy"
   ],
   "bugs": {
-    "url": "https://github.com/BelinChung/weapp-hiapp/issues"
+    "url": "https://github.com/gottaBoy/weapp-hiapp/issues"
   },
-  "homepage": "https://hi.dearb.me/",
+  "homepage": "https://www.gottaboy.com/",
   "dependencies": {
     "date-fns": "^1.29.0",
     "lodash": "^4.17.5",
